@@ -28,7 +28,6 @@ public class ProductCommandController {
                         .price(productRestModel.getPrice())
                         .quantity(productRestModel.getQuantity())
                         .build();
-        String result = commandGateway.sendAndWait(createProductCommand);
-        return result;
+        return commandGateway.sendAndWait(createProductCommand);
     }
 }
