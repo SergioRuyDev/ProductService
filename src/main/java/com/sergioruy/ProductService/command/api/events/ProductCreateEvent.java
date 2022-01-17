@@ -1,16 +1,18 @@
-package com.sergioruy.ProductService.command.api.commands;
+package com.sergioruy.ProductService.command.api.events;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
 @Builder
-public class CreateProductCommand {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductCreateEvent {
 
-    @TargetAggregateIdentifier
     private String ProductId;
     private String name;
     private BigDecimal price;
