@@ -2,6 +2,7 @@ package com.sergioruy.ProductService.command.api.aggregate;
 
 import com.sergioruy.ProductService.command.api.commands.CreateProductCommand;
 import com.sergioruy.ProductService.command.api.events.ProductCreateEvent;
+import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 public class ProductAggregate {
 
     @AggregateIdentifier
-    private String ProductId;
+    private String productId;
     private String name;
     private BigDecimal price;
     private Integer quantity;
@@ -29,4 +30,12 @@ public class ProductAggregate {
     }
 
     public ProductAggregate() {}
+
+    @EventSourcingHandler
+    public void on(ProductCreateEvent productCreateEvent) {
+        this.quantity = productCreateEvent.getQuantity();
+        this.productId = productCreateEvent.getProductId();
+        this.price = productCreateEvent.getPrice();
+        this.name = productCreateEvent.getName();
+    }
 }

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class CreateProductCommand {
 
     @TargetAggregateIdentifier
-    private String ProductId;
+    private String productId;
     private String name;
     private BigDecimal price;
     private Integer quantity;

@@ -23,7 +23,7 @@ public class ProductCommandController {
 
         CreateProductCommand createProductCommand =
                 CreateProductCommand.builder()
-                        .ProductId(UUID.randomUUID().toString())
+                        .productId(UUID.randomUUID().toString())
                         .name(productRestModel.getName())
                         .price(productRestModel.getPrice())
                         .quantity(productRestModel.getQuantity())
